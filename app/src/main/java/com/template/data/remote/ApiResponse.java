@@ -1,4 +1,4 @@
-package com.template.data.model.api;
+package com.template.data.remote;
 
 public class ApiResponse<T> {
 

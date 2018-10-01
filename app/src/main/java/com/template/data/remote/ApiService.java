@@ -1,11 +1,12 @@
 package com.template.data.remote;
 
-import io.reactivex.Single;
+import com.template.data.model.api.TestEntity;
+
+import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface ApiService {
-    String URL_SERVER = "http://oicsoft.com/api_v1/";
 
-    @GET("/emoployee_list")
-    Single<Object> getEmployeeList();
+    @GET("api/product/homepage2")
+    Call<ApiResponse<TestEntity>> getHome();
 }

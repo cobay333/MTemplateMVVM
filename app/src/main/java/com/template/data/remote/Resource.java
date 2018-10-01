@@ -1,4 +1,4 @@
-package com.template.data.model.api;
+package com.template.data.remote;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;

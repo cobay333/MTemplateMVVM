@@ -3,7 +3,7 @@ package com.template.base;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
-import com.template.data.model.api.ApiResponse;
+import com.template.data.remote.ApiResponse;
 import com.template.utils.JsonUtil;
 
 import java.io.IOException;

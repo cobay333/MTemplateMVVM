@@ -1,9 +1,24 @@
 package com.template.di.module;
 
+import android.arch.lifecycle.ViewModelProvider;
+
+import com.template.di.component.ViewModelSubComponent;
+import com.template.utils.ViewModelFactory;
+
+import javax.inject.Singleton;
+
 import dagger.Module;
+import dagger.Provides;
 
 @Module
 public class AppModule {
+
+    @Singleton
+    @Provides
+    static ViewModelProvider.Factory provideViewModelFactory(
+            ViewModelSubComponent.Builder viewModelSubComponent) {
+        return new ViewModelFactory(viewModelSubComponent.build());
+    }
 
 //    @Provides
 //    @Singleton

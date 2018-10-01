@@ -4,8 +4,8 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.support.annotation.NonNull;
 
-import com.template.data.model.api.ApiResponse;
-import com.template.data.model.api.Resource;
+import com.template.data.remote.ApiResponse;
+import com.template.data.remote.Resource;
 import com.template.utils.HttpStatus;
 
 import retrofit2.Call;
