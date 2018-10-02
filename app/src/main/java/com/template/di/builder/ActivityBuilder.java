@@ -1,6 +1,9 @@
 package com.template.di.builder;
 
+import com.template.feauture.home.MainActivity;
+
 import dagger.Module;
+import dagger.android.ContributesAndroidInjector;
 
 @Module
 public abstract class ActivityBuilder {
@@ -11,8 +14,8 @@ public abstract class ActivityBuilder {
 //            OpenSourceFragmentProvider.class})
 //    abstract FeedActivity bindFeedActivity();
 //
-//    @ContributesAndroidInjector(modules = LoginActivityModule.class)
-//    abstract LoginActivity bindLoginActivity();
+@ContributesAndroidInjector
+abstract MainActivity bindMainActivity();
 //
 //    @ContributesAndroidInjector(modules = {
 //            MainActivityModule.class,

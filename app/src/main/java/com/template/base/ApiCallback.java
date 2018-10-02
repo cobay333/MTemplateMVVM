@@ -19,6 +19,12 @@ import retrofit2.Response;
 
 public abstract class ApiCallback<T> implements Callback<T> {
 
+    /**
+     * handle repose form api
+     *
+     * @param call
+     * @param response
+     */
     @Override
     public void onResponse(@NonNull Call<T> call, @NonNull Response<T> response) {
         if (response.isSuccessful()) {
@@ -42,6 +48,11 @@ public abstract class ApiCallback<T> implements Callback<T> {
         }
     }
 
+    /**
+     * handle service failure
+     * @param call
+     * @param t
+     */
     @Override
     public void onFailure(@NonNull Call<T> call, @NonNull Throwable t) {
         if (t instanceof Exception) {
@@ -51,10 +62,23 @@ public abstract class ApiCallback<T> implements Callback<T> {
         }
     }
 
+    /**
+     * return data
+     * @param data
+     * @param code
+     */
     abstract void handleResponseData(T data, int code);
 
+    /**
+     * handle when have exception
+     * @param e
+     */
     abstract void handleException(Exception e);
 
+    /**
+     * handle error when call api
+     * @param response
+     */
     private void handleError(Response<T> response) {
         handleException(new Exception(response == null || TextUtils.isEmpty(response.message()) ? "Device not connect internet. please check it." : response.message()));
     }

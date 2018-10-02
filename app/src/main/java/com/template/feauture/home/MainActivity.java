@@ -1,19 +1,13 @@
 package com.template.feauture.home;
 
-import android.app.Dialog;
 import android.os.Bundle;
 
 import com.template.R;
+import com.template.base.AbstractResourceObserver;
 import com.template.base.BaseActivity;
+import com.template.data.model.api.TestEntity;
 
 public class MainActivity extends BaseActivity<MainViewModel> {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
-
     @Override
     protected void generateContentView(int layoutResId) {
         setContentView(layoutResId);
@@ -31,22 +25,24 @@ public class MainActivity extends BaseActivity<MainViewModel> {
 
     @Override
     public void onAfterSetContentLayout(Bundle savedInstanceState) {
+        showWaitDialog();
+        viewModel.getHome().observe(this, new AbstractResourceObserver<TestEntity>() {
+            @Override
+            public void onSuccess(TestEntity data) {
+                hideWaitDialog();
+            }
 
-    }
-
-    @Override
-    public void hideWaitDialog() {
-
-    }
-
-    @Override
-    public Dialog showWaitDialog() {
-        return null;
+            @Override
+            public void onError(String errorMsg, int code) {
+                super.onError(errorMsg, code);
+                hideWaitDialog();
+            }
+        });
     }
 
     @Override
     public Class getModelClass() {
-        return MainActivity.class;
+        return MainViewModel.class;
     }
 
     @Override

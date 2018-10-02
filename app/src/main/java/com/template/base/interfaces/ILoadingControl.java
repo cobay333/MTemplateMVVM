@@ -1,9 +1,15 @@
 package com.template.base.interfaces;
 
-import android.app.Dialog;
-
 public interface ILoadingControl {
+    /**
+     * dismiss dialog
+     */
     void hideWaitDialog();
 
-    Dialog showWaitDialog();
+    /**
+     * show waiting dialog
+     *
+     * @return
+     */
+    void showWaitDialog();
 }

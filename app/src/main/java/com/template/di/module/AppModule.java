@@ -10,7 +10,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 
-@Module
+@Module(subcomponents = ViewModelSubComponent.class)
 public class AppModule {
 
     @Singleton

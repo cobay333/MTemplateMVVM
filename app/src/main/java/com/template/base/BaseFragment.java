@@ -25,6 +25,9 @@ public abstract class BaseFragment<VM extends BaseViewModel> extends DaggerFragm
      */
     protected VM viewModel;
 
+    /**
+     * view model factory
+     */
     @Inject
     ViewModelProvider.Factory viewModelFactory;
 
@@ -48,8 +51,17 @@ public abstract class BaseFragment<VM extends BaseViewModel> extends DaggerFragm
         return mView;
     }
 
-    abstract View generateContentView(@NonNull LayoutInflater inflater,
-                                      int layoutId, @Nullable ViewGroup container, boolean attachToParent);
+    /**
+     * add layout id to activity
+     *
+     * @param inflater
+     * @param layoutId
+     * @param container
+     * @param attachToParent
+     * @return
+     */
+    public abstract View generateContentView(@NonNull LayoutInflater inflater,
+                                             int layoutId, @Nullable ViewGroup container, boolean attachToParent);
 
     @Override
     public VM obtainViewModel() {

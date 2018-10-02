@@ -12,19 +12,13 @@ import javax.inject.Singleton;
 
 import dagger.BindsInstance;
 import dagger.Component;
-import dagger.android.AndroidInjectionModule;
 import dagger.android.AndroidInjector;
-import dagger.android.DaggerApplication;
+import dagger.android.support.AndroidSupportInjectionModule;
 
 @Singleton
-@Component(modules = {AndroidInjectionModule.class, AppModule.class, ActivityBuilder.class,
-        ApplicationModule.class, HttpModule.class})
-public interface AppComponent extends AndroidInjector<DaggerApplication> {
-
-    void inject(MyApplication app);
-
-    @Override
-    void inject(DaggerApplication instance);
+@Component(modules = {AppModule.class, ActivityBuilder.class,
+        ApplicationModule.class, HttpModule.class, AndroidSupportInjectionModule.class})
+public interface AppComponent extends AndroidInjector<MyApplication> {
 
     @Component.Builder
     interface Builder {

@@ -10,9 +10,12 @@ import com.template.data.DataRepository;
 import com.template.data.model.api.TestEntity;
 import com.template.data.remote.Resource;
 
+import javax.inject.Inject;
+
 public class MainViewModel extends BaseViewModel {
     public final MutableLiveData<String> title = new MutableLiveData<>();
 
+    @Inject
     public MainViewModel(@NonNull Application application, DataRepository dataRepository) {
         super(application, dataRepository);
     }

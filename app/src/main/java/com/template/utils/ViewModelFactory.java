@@ -6,22 +6,21 @@ import android.support.annotation.NonNull;
 import android.util.ArrayMap;
 
 import com.template.di.component.ViewModelSubComponent;
+import com.template.feauture.home.MainViewModel;
 
 import java.util.Map;
 import java.util.concurrent.Callable;
 
 import javax.inject.Inject;
 
-public class ViewModelFactory extends ViewModelProvider.NewInstanceFactory {
+public class ViewModelFactory implements ViewModelProvider.Factory {
 
     private final ArrayMap<Class, Callable<? extends ViewModel>> creators;
 
     @Inject
     public ViewModelFactory(ViewModelSubComponent viewModelSubComponent) {
         creators = new ArrayMap<>();
-
-        // View models cannot be injected directly because they won't be bound to the owner's view model scope.
-//        creators.put(UserViewModel.class, viewModelSubComponent::projectUserViewModel);
+        creators.put(MainViewModel.class, viewModelSubComponent::mainViewModel);
     }
 
     @Override
